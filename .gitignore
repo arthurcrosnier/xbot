@@ -85,3 +85,5 @@ dist/
 
 # package-lock.json for newer npm versions
 package-lock.json
+
+config.js

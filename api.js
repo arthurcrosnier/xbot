@@ -43,7 +43,11 @@ async function askArticleToGpt(tweetsText) {
       messages: [
         {
           role: "user",
-          content: promptGptArticle + " " + tweetsText + " ",
+          content:
+            promptGptArticle +
+            " " +
+            tweetsText +
+            " n'oublie pas de selectionner un tweet_id dans les data ci-dessus et de le mettre dans la clé 'id_tweet' ",
         },
       ],
       temperature: openAiParams.temperature,
