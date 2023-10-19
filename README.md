@@ -22,6 +22,35 @@ The bot uses a SQL table with the following columns to manage and track the twee
     date_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );`
 
+## .env structure
+
+- `# Database Configuration
+DB_CONNECTION=mysql
+DB_HOST=your_db_host
+DB_PORT=your_db_port
+DB_DATABASE=your_db_name
+DB_USERNAME=your_db_username
+DB_PASSWORD=your_db_password
+
+# GHOST API Configuration
+GHOST_API_URL=your_ghost_api_url
+GHOST_API_KEY=your_ghost_api_key
+GHOST_API_VERSION=your_ghost_api_version
+
+# TWITTER API Configuration
+TWITTER_API_KEY=your_twitter_api_key
+TWITTER_API_SECRET=your_twitter_api_secret
+TWITTER_ACCESS_TOKEN=your_twitter_access_token
+TWITTER_ACCESS_TOKEN_SECRET=your_twitter_access_token_secret
+TWITTER_BEARER_TOKEN=your_twitter_bearer_token
+
+# OPENAI Configuration
+OPENAI_APIKEY=your_openai_api_key
+
+# GOOGLE API Configuration
+GOOGLE_API_KEY=your_google_api_key
+GOOGLE_CX=your_google_cx
+`
 
 ## Usage
 1. **Setup:** Ensure you have the required dependencies by checking the `package.json` and installing them via npm.
