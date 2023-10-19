@@ -1,6 +1,6 @@
 # XBot
 
-XBot is an automation bot designed to seamlessly integrate with Twitter, the Ghost content management system, and OpenAI's GPT-4 model. 
+XBot is an automation robot designed to integrate seamlessly with Twitter and the Ghost content management system.
 
 ## Description
 The bot is capable of fetching tweets from specified Twitter accounts, utilizing the capabilities of GPT-4 to generate new tweets and articles, and subsequently publishing these articles to a Ghost-based website. Moreover, it harnesses the power of Tesseract for image processing and Jimp for image manipulation.
