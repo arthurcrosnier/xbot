@@ -27,11 +27,11 @@ const googleSearchParams = {
 };
 
 const accountsToParse = {
-  Mediavenir: "1214315619031478272",
-  LittleThinkThank: "1233151236154761217",
-  Figaro: "8350912",
-  Breve: "472852289",
-  Cerfia: "971820228",
+  user1: "1214315619031478272",
+  user2: "1233151236154761217",
+  user3: "8350912",
+  user4: "472852289",
+  user5: "971820228",
 };
 
 const promptGpt =
