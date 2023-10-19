@@ -10,6 +10,15 @@ The bot is capable of fetching tweets from specified Twitter accounts, utilizing
 - **Generate Content:** Produces tweets and articles based on previously fetched tweets using the GPT-4 model.
 - **Publish to Ghost:** Posts the generated articles directly to a Ghost CMS platform.
 
+## Usage
+1. **Setup:** Ensure you have the required dependencies by checking the `package.json` and installing them via npm.
+2. **Environment Variables:** Configure your `.env` file with the necessary API keys and credentials.
+3. **Run the Bot:** Utilize the npm scripts provided:
+   - Fetch Tweets: `npm run getTweets`
+   - Generate a Tweet: `npm run generateTweet`
+   - Generate an Article: `npm run generateArticle`
+   - Test the Setup: `npm run test`
+
 ## Database Structure
 The bot uses a SQL table with the following columns to manage and track the tweets:
 ```
@@ -51,15 +60,6 @@ OPENAI_APIKEY=your_openai_api_key
 GOOGLE_API_KEY=your_google_api_key
 GOOGLE_CX=your_google_cx
 ```
-
-## Usage
-1. **Setup:** Ensure you have the required dependencies by checking the `package.json` and installing them via npm.
-2. **Environment Variables:** Configure your `.env` file with the necessary API keys and credentials.
-3. **Run the Bot:** Utilize the npm scripts provided:
-   - Fetch Tweets: `npm run getTweets`
-   - Generate a Tweet: `npm run generateTweet`
-   - Generate an Article: `npm run generateArticle`
-   - Test the Setup: `npm run test`
 
 ## Contributing
 Feel free to fork the project, make some updates, and submit pull requests. Feedback is always welcome.
