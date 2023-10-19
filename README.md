@@ -12,14 +12,6 @@ The bot is capable of fetching tweets from specified Twitter accounts, utilizing
 
 ## Database Structure
 The bot uses a SQL table with the following columns to manage and track the tweets:
-- `id`: Unique identifier for each entry.
-- `tweet_id`: Identifier of the fetched tweet.
-- `tweet_text`: The actual content of the fetched tweet.
-- `usedForCreateTweet`: Flag indicating if the tweet was used for generating new tweets.
-- `usedForCreateArticle`: Flag indicating if the tweet was used for generating articles.
-- `date_added`: Timestamp of when the tweet was added to the database.
-- `date_updated`: Timestamp of the last update on the tweet entry.
-
 - `CREATE TABLE tweets (
     id INT AUTO_INCREMENT PRIMARY KEY,
     tweet_id VARCHAR(255) NOT NULL,
