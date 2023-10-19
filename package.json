@@ -1,0 +1,37 @@
+{
+  "name": "xbot",
+  "version": "1.0.0",
+  "description": "A bot for X/twitter and ghost with gpt 4",
+  "main": "main.js",
+  "scripts": {
+    "getTweets": "node main.js getTweets",
+    "generateTweet": "node main.js generateTweet",
+    "generateArticle": "node main.js generateArticle",
+    "test": "node main.js test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arthurcrosnier/xbot.git"
+  },
+  "author": "Votre Nom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arthurcrosnier/xbot/issues"
+  },
+  "homepage": "https://github.com/arthurcrosnier/xbot/#readme",
+  "dependencies": {
+    "@tryghost/admin-api": "^1.13.8",
+    "axios": "^1.5.1",
+    "child-process": "^1.0.2",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "jimp": "^0.22.10",
+    "jsdom": "^22.1.0",
+    "jsonrepair": "^3.2.4",
+    "mysql2": "^3.6.2",
+    "node-cron": "^3.0.2",
+    "openai": "^4.12.4",
+    "tesseract.js": "^5.0.2",
+    "twitter-api-v2": "^1.15.2"
+  }
+}
