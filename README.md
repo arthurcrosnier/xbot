@@ -23,8 +23,8 @@ The bot uses a SQL table with the following columns to manage and track the twee
 );`
 
 ## .env structure
-
-- `# Database Configuration
+`
+# Database Configuration
 DB_CONNECTION=mysql
 DB_HOST=your_db_host
 DB_PORT=your_db_port
