@@ -23,7 +23,7 @@ async function getImageWithoutText(response) {
       // Convert image to buffer
       const buffer = await image.getBufferAsync(Jimp.MIME_PNG);
 
-      const worker = await createWorker("eng");
+      const worker = await createWorker("eng+fra+ara+rus+spa");
       await worker.setParameters({
         tessedit_pageseg_mode: PSM.SINGLE_LINE,
       });

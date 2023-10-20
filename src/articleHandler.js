@@ -25,7 +25,7 @@ class ArticleHandler {
       tweet_id: tweet.tweet_id,
       text: tweet.tweet_text,
     }));
-    //await updateTweetDbNotUsedForArticle(true);
+    await updateTweetDbNotUsedForArticle(true);
     console.log("ask to GPT-4...");
     const response = await askArticleToGpt(JSON.stringify(tweets));
     if (response.choices.length === 0) {
