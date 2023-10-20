@@ -1,8 +1,8 @@
 require("dotenv").config();
-const { db } = require("./config");
-const TwitterHandler = require("./twitterHandler");
-const ArticleHandler = require("./articleHandler");
-const TestHandler = require("./testHandler");
+const { db } = require("./config/config");
+const TwitterHandler = require("./src/twitterHandler");
+const ArticleHandler = require("./src/articleHandler");
+const TestHandler = require("./src/testHandler");
 
 async function main() {
   const twitterHandler = new TwitterHandler();

@@ -1,5 +1,5 @@
 const { createWorker, PSM } = require("tesseract.js");
-const { searchGoogleImage, saveImgUrl } = require("./api");
+const { searchGoogleImage, saveImgUrl } = require("../src/api");
 const Jimp = require("jimp");
 
 async function getImageWithoutText(response) {

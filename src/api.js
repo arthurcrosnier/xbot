@@ -3,12 +3,12 @@ const {
   twitterApi,
   rwTwitterApi,
   openai,
-  promptGpt,
+  promptGptTweet,
   promptGptArticle,
   openAiParams,
   userTimelineTweetsParams,
   googleSearchParams,
-} = require("./config");
+} = require("../config/config");
 
 const fs = require("fs");
 const path = require("path");
@@ -21,7 +21,7 @@ async function askTweetToGpt(tweetsText) {
       messages: [
         {
           role: "user",
-          content: promptGpt + " " + tweetsText + " ",
+          content: promptGptTweet + " " + tweetsText + " ",
         },
       ],
       temperature: openAiParams.temperature,

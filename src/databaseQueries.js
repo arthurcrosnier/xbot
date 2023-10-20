@@ -1,4 +1,4 @@
-const { db } = require("./config");
+const { db } = require("../config/config");
 
 const updateTweetDbNotUsedForTweet = async (value) => {
   const query = "UPDATE tweets SET usedForCreateTweet = ?";

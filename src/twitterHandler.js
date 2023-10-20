@@ -1,5 +1,5 @@
-const { accountsToParse } = require("./config");
-const { getImage } = require("./utils");
+const { accountsToParse } = require("../config/config");
+const { getImage } = require("../utils/utils");
 const {
   askTweetToGpt,
   getTweetsFromAccountId,

@@ -1,4 +1,4 @@
-const { getImage } = require("./utils");
+const { getImage } = require("../utils/utils");
 
 const {
   getTweetDbNotUsedForArticle,
