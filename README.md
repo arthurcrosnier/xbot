@@ -1,5 +1,5 @@
 # XBot
-![XBot Logo](https://github.com/arthurcrosnier/xbot/blob/main/dalle-xbot.png)
+![XBot Logo](https://github.com/arthurcrosnier/xbot/blob/main/assets/dalle-xbot.png)
 XBot is an automation robot designed to integrate seamlessly with Twitter and the Ghost content management system.
 
 ## Description
