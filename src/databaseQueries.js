@@ -19,7 +19,7 @@ const getTweetDbNotUsedForTweet = async () => {
 
 const getTweetDbNotUsedForArticle = async () => {
   const [results] = await db.execute(
-    "SELECT tweet_text FROM tweets WHERE usedForCreateArticle = false"
+    "SELECT tweet_id, tweet_text FROM tweets WHERE usedForCreateArticle = false"
   );
 
   return results;

@@ -1,77 +1,90 @@
-const {
-  ghostApi,
-  twitterApi,
-  rwTwitterApi,
-  openai,
-  promptGptTweet,
-  promptGptArticle,
-  openAiParams,
-  userTimelineTweetsParams,
-  googleSearchParams,
-} = require("../config/config");
+const config = require("../config/config");
 
 const fs = require("fs");
 const path = require("path");
 const axios = require("axios");
 
 async function askTweetToGpt(tweetsText) {
-  const askToGpt = await openai.chat.completions.create(
+  const askToGpt = await config.openai.chat.completions.create(
     {
       model: "gpt-4",
       messages: [
         {
           role: "user",
-          content: promptGptTweet + " " + tweetsText + " ",
+          content: config.promptGptTweet + " " + tweetsText + " ",
         },
       ],
-      temperature: openAiParams.temperature,
-      max_tokens: openAiParams.max_tokens_tweet,
-      top_p: openAiParams.top_p,
-      frequency_penalty: openAiParams.frequency_penalty,
-      presence_penalty: openAiParams.presence_penalty,
+      temperature: config.openAiParams.temperature,
+      max_tokens: config.openAiParams.max_tokens_tweet,
+      top_p: config.openAiParams.top_p,
+      frequency_penalty: config.openAiParams.frequency_penalty,
+      presence_penalty: config.openAiParams.presence_penalty,
     },
-    { timeout: openAiParams.timeout }
+    { timeout: config.openAiParams.timeout }
   );
 
   return askToGpt;
 }
 
 async function askArticleToGpt(tweetsText) {
-  const askToGpt = await openai.chat.completions.create(
+  const askToGpt = await config.openai.chat.completions.create(
     {
       model: "gpt-4",
       messages: [
         {
           role: "user",
-          content:
-            promptGptArticle +
-            " " +
-            tweetsText +
-            " n'oublie pas de selectionner un tweet_id dans les data ci-dessus et de le mettre dans la clé 'id_tweet' ",
+          content: config.promptGptArticle + " " + tweetsText,
         },
       ],
-      temperature: openAiParams.temperature,
-      max_tokens: openAiParams.max_tokens_article,
-      top_p: openAiParams.top_p,
-      frequency_penalty: openAiParams.frequency_penalty,
-      presence_penalty: openAiParams.presence_penalty,
+      temperature: config.openAiParams.temperature,
+      max_tokens: config.openAiParams.max_tokens_article,
+      top_p: config.openAiParams.top_p,
+      frequency_penalty: config.openAiParams.frequency_penalty,
+      presence_penalty: config.openAiParams.presence_penalty,
     },
-    { timeout: openAiParams.timeout }
+    { timeout: config.openAiParams.timeout }
+  );
+
+  return askToGpt;
+}
+
+async function askTweetIdToGpt(tweetsText, article_title) {
+  const prompt = config.promptGptGetIdTweet.replace(
+    "{article_title}",
+    article_title
+  );
+
+  const askToGpt = await config.openai.chat.completions.create(
+    {
+      model: "gpt-4",
+      messages: [
+        {
+          role: "user",
+          content: prompt + " " + tweetsText,
+        },
+      ],
+      temperature: config.openAiParams.temperature,
+      max_tokens: config.openAiParams.max_tokens_tweet,
+      top_p: config.openAiParams.top_p,
+      frequency_penalty: config.openAiParams.frequency_penalty,
+      presence_penalty: config.openAiParams.presence_penalty,
+    },
+    { timeout: config.openAiParams.timeout }
   );
 
   return askToGpt;
 }
 
 async function getTweetsFromAccountId(accountId) {
-  const tweets = await twitterApi.v2.userTimeline(
+  const tweets = await config.twitterApi.v2.userTimeline(
     accountId,
-    userTimelineTweetsParams
+    config.userTimelineTweetsParams
   );
   return tweets;
 }
 
 async function uploadMediaTwitter(media) {
-  const mediaId = await twitterApi.v1.uploadMedia(media);
+  const mediaId = await config.twitterApi.v1.uploadMedia(media);
 
   return mediaId;
 }
@@ -85,7 +98,7 @@ async function createTweet(tweetText, mediaId) {
     tweetParams.media = { media_ids: [mediaId] };
   }
 
-  await rwTwitterApi.v2.tweet(tweetParams);
+  await config.rwTwitterApi.v2.tweet(tweetParams);
 }
 
 async function searchGoogleImage(search) {
@@ -96,11 +109,11 @@ async function searchGoogleImage(search) {
         key: process.env.GOOGLE_API_KEY,
         cx: process.env.GOOGLE_CX,
         q: search,
-        searchType: googleSearchParams.searchType,
-        dateRestrict: googleSearchParams.dateRestrict,
-        imgSize: googleSearchParams.imgSize,
-        gl: googleSearchParams.gl,
-        safe: googleSearchParams.safe,
+        searchType: config.googleSearchParams.searchType,
+        dateRestrict: config.googleSearchParams.dateRestrict,
+        imgSize: config.googleSearchParams.imgSize,
+        gl: config.googleSearchParams.gl,
+        safe: config.googleSearchParams.safe,
       },
     }
   );
@@ -145,7 +158,7 @@ async function createGhostArticle(
     feature_image: articleFeaturedImage,
   };
 
-  ghostApi.posts
+  config.ghostApi.posts
     .add(postData)
     .then((response) => {
       console.log("Post created !");
@@ -158,6 +171,7 @@ async function createGhostArticle(
 module.exports = {
   askTweetToGpt,
   askArticleToGpt,
+  askTweetIdToGpt,
   getTweetsFromAccountId,
   searchGoogleImage,
   saveImgUrl,

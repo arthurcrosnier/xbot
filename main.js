@@ -14,8 +14,11 @@ async function main() {
     generateTweet: async () => await twitterHandler.generateTweet(),
     generateArticle: async () => await articleHandler.createGhostArticle(),
     test: async () =>
-      await testHandler.testImg(
-        "FIFA à Paris : Un paradis fiscal sur-mesure envisagé"
+      // await testHandler.testImg(
+      //   "FIFA à Paris : Un paradis fiscal sur-mesure envisagé"
+      // ),
+      await testHandler.testGetIdTweetFromGpt(
+        "Elon Musk envisage de retirer Twitter/X d'Europe pour éviter la conformité avec la réglementation européenne"
       ),
   };
 

@@ -82,7 +82,32 @@ function isImage(url) {
   return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
 }
 
+async function validateAndRepairJSON(jsonString) {
+  let parsedJSON;
+
+  try {
+    // try to parse JSON
+    parsedJSON = JSON.parse(jsonString);
+    return parsedJSON; // if valid, return JSON object
+  } catch (initialError) {
+    console.warn("Error when trying to parse JSON. Attempting to repair JSON.");
+
+    try {
+      const repairedString = jsonrepair(jsonString);
+      parsedJSON = JSON.parse(repairedString); // check again if valid
+      return parsedJSON; // If fix worked, return JSON object
+    } catch (repairError) {
+      console.error(
+        "Error when trying to repair JSON. Invalid JSON.",
+        repairError
+      );
+      throw new Error("JSON could not be repaired.");
+    }
+  }
+}
+
 module.exports = {
   getImageWithoutText,
   getImage,
+  validateAndRepairJSON,
 };
