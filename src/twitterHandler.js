@@ -26,7 +26,12 @@ class TwitterHandler {
         const tweetIsInDb = await getTweetDbById(tweetId);
 
         if (tweetIsInDb.length === 0) {
-          await insertTweetInDb(tweetId, tweetText);
+          await insertTweetInDb(
+            tweetId,
+            tweetText,
+            name,
+            JSON.stringify(tweetObject)
+          );
           console.log("insert last tweet from " + name + " in db !");
         } else {
           console.log("tweet already in db");

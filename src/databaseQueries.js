@@ -34,10 +34,10 @@ const getTweetDbById = async (id) => {
   return results;
 };
 
-const insertTweetInDb = async (tweetId, tweetText) => {
+const insertTweetInDb = async (tweetId, tweetText, who, apiResult) => {
   const query =
-    "INSERT INTO tweets (tweet_id, tweet_text, usedForCreateTweet, usedForCreateArticle) VALUES (?, ?, false, false)";
-  await db.query(query, [tweetId, tweetText]);
+    "INSERT INTO tweets (tweet_id, tweet_text, usedForCreateTweet, usedForCreateArticle, who, apiResult) VALUES (?, ?, false, false, ?, ?)";
+  await db.query(query, [tweetId, tweetText, who, apiResult]);
 };
 
 module.exports = {
