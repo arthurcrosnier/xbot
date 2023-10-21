@@ -1,5 +1,5 @@
 const { getImage } = require("../utils/utils");
-const { askTweetIdToGpt } = require("./api");
+const { askTweetIdToGpt, getPopularHashtags } = require("./api");
 const { getTweetDbNotUsedForArticle } = require("./databaseQueries");
 class TestHandler {
   async testImg(search = "cat") {
@@ -26,6 +26,11 @@ class TestHandler {
 
     const tweet_id = articleTweetId.choices[0].message.content;
     console.log(tweet_id);
+  }
+
+  async testGetHashTag() {
+    const hashtags = await getPopularHashtags(5, 23424819);
+    console.log(hashtags);
   }
 }
 

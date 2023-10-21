@@ -17,9 +17,10 @@ async function main() {
       // await testHandler.testImg(
       //   "FIFA à Paris : Un paradis fiscal sur-mesure envisagé"
       // ),
-      await testHandler.testGetIdTweetFromGpt(
-        "Elon Musk envisage de retirer Twitter/X d'Europe pour éviter la conformité avec la réglementation européenne"
-      ),
+      // await testHandler.testGetIdTweetFromGpt(
+      //   "Elon Musk envisage de retirer Twitter/X d'Europe pour éviter la conformité avec la réglementation européenne"
+      // ),
+      await testHandler.testGetHashTag(),
   };
 
   const arg1 = process.argv[2];

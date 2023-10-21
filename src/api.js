@@ -168,6 +168,23 @@ async function createGhostArticle(
     });
 }
 
+async function getPopularHashtags(numberOfHashtags, location) {
+  try {
+    const trendsForLocation = await config.twitterApi.v1.trendsAvailable();
+    console.log(trendsForLocation);
+    return true;
+    const hashtags = trendsForLocation[0].trends
+      .slice(0, numberOfHashtags)
+      .map((trend) => trend.name);
+    return hashtags;
+  } catch (error) {
+    console.error(
+      "Erreur lors de la récupération des hashtags populaires :",
+      error
+    );
+  }
+}
+
 module.exports = {
   askTweetToGpt,
   askArticleToGpt,
@@ -178,4 +195,5 @@ module.exports = {
   uploadMediaTwitter,
   createTweet,
   createGhostArticle,
+  getPopularHashtags,
 };
