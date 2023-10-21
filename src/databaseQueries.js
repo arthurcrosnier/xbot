@@ -40,6 +40,12 @@ const insertTweetInDb = async (tweetId, tweetText, who, apiResult) => {
   await db.query(query, [tweetId, tweetText, who, apiResult]);
 };
 
+const insertInfoTweetGeneratedInDb = async (tweetText, imagePrompt) => {
+  const query =
+    "INSERT INTO tweetsGeneratedInfo (tweet_text, image_prompt) VALUES (?, ?)";
+  await db.query(query, [tweetText, imagePrompt]);
+};
+
 module.exports = {
   updateTweetDbNotUsedForTweet,
   updateTweetDbNotUsedForArticle,
@@ -47,4 +53,5 @@ module.exports = {
   getTweetDbNotUsedForArticle,
   getTweetDbById,
   insertTweetInDb,
+  insertInfoTweetGeneratedInDb,
 };

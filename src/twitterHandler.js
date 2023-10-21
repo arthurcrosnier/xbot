@@ -12,6 +12,7 @@ const {
   getTweetDbNotUsedForTweet,
   getTweetDbById,
   insertTweetInDb,
+  insertInfoTweetGeneratedInDb,
 } = require("./databaseQueries");
 
 class TwitterHandler {
@@ -65,6 +66,7 @@ class TwitterHandler {
       const image = await getImage(tweetImage);
 
       await this.postTweet(tweetText, image);
+      await insertInfoTweetGeneratedInDb(tweetText, tweetImage);
     } catch (error) {
       console.error("Erreur lors de la génération du tweet:", error);
     }
