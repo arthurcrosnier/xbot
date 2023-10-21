@@ -43,10 +43,8 @@ async function getImageWithoutText(response) {
     }
   }
 
-  // return random url
-  return urlsImg.length > 0
-    ? urlsImg[Math.floor(Math.random() * urlsImg.length)]
-    : false;
+  // return first url
+  return urlsImg.length > 0 ? urlsImg[0] : false;
 }
 
 async function getImage(search, url = false) {
